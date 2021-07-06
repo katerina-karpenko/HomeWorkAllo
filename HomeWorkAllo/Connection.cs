@@ -2,10 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TechTalk.SpecFlow;
 
 namespace HomeWorkAllo
 {
@@ -14,19 +11,25 @@ namespace HomeWorkAllo
         public IWebDriver driver;
         public MainPage mainPage;
 
-        [OneTimeSetUp]
+        [Before]
         public void CreateDriver()
         {
-            driver = new ChromeDriver(@"C:D:\WebDriver\chromedriver_win32\");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(13);
+            driver = new ChromeDriver(@"D:\WebDriver\chromedriver_win32\chromedriver_win32");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
-        [SetUp]
+        [BeforeScenario]
         public MainPage OpenMainPage()
         {
-            driver.Navigate().GoToUrl("https://allo.ua/");
+            driver.Navigate().GoToUrl("https://allo.ua/ru");
             driver.Manage().Window.Maximize();
             return new MainPage(driver);
+        }
+
+        [AfterScenario]
+        public void KillDriver()
+        {
+            driver.Quit();
         }
     }
 }

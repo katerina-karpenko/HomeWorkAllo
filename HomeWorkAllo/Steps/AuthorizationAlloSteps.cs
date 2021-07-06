@@ -8,51 +8,65 @@ namespace HomeWorkAllo.Steps
     [Binding]
     public class AuthorizationAlloSteps
     {
+        Connection connection;
         public MainPage mainPage;
         public AuthorizationModal authorizationModal;
 
         [Given(@"website Allo opened")]
         public void GivenWebsiteAlloOpened()
         {
-            Connection connection = new Connection();
+            connection = new Connection();
             connection.CreateDriver();
             mainPage = connection.OpenMainPage();
         }
 
-        [When(@"click on the button ""(.*)""")]
-        public void WhenClickOnTheButton(string p0)
+        [When(@"click on the button Вход")]
+        public void WhenClickOnTheButtonВход()
         {
-            switch (p0)
-            {
-                case "Вход":
-                    mainPage.ClickOnEnterButtonInMainPage();
-                    mainPage.GetAuthorizedUserName();
-                    break;
-
-                case "Войти":
-                    authorizationModal.ClickOnEnterButtonInModal();
-                    break;
-            }
+            authorizationModal = mainPage.ClickOnEnterButtonInMainPage();
         }
 
-        [When(@"enter e-mail ""(.*)""")]
+        [When(@"click on the login field")]
+        public void WhenClickOnTheLoginField()
+        {
+            authorizationModal.ClickOnLoginInModal();
+        }
+        
+        [When(@"enter e-mail '(.*)'")]
         public void WhenEnterE_Mail(string p0)
         {
             authorizationModal.EnterLoginTextIntoModal(p0);
         }
-
-        [When(@"enter password ""(.*)""")]
+        
+        [When(@"click on the password field")]
+        public void WhenClickOnThePasswordField()
+        {
+            authorizationModal.ClickOnPasswordInModal();
+        }
+        
+        [When(@"enter password '(.*)'")]
         public void WhenEnterPassword(string p0)
         {
             authorizationModal.EnterPasswordTextIntoModal(p0);
         }
-
-        [Then(@"Displayed user name equal to ""(.*)""")]
-        public void ThenDisplayedUserNameEqualTo(string p0)
+        
+        [When(@"click on the button Войти")]
+        public void WhenClickOnTheButtonВойти()
         {
-            string name = mainPage.GetAuthorizedUserName();
-            Assert.AreEqual(p0, name);
+            authorizationModal.ClickOnEnterButtonInModal();
+        }
+        
+        [Then(@"Displayed user name equal to Катерина")]
+        public void ThenDisplayedUserNameEqualToКатерина()
+        {
+            string actualMessege = mainPage.GetAuthorizedUserName();
+            Assert.AreEqual("Катерина", actualMessege);
         }
 
+        [AfterScenario]
+        public void After()
+        {
+            connection.KillDriver();
+        }
     }
 }
