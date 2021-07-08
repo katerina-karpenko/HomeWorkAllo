@@ -5,6 +5,6 @@
 
 Scenario: Unauthorized user has empty cart
 	Given website Allo opened
-	Given User is not logged in
-	When User clicks on cart
-	Then Cart is empty
+	Given user is not logged in
+	When user clicks on cart
+	Then cart is empty

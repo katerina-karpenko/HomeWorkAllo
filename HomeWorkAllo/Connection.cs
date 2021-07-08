@@ -6,28 +6,30 @@ using TechTalk.SpecFlow;
 
 namespace HomeWorkAllo
 {
-    class Connection
+    [Binding]
+    public static class Connection
     {
-        public IWebDriver driver;
-        public MainPage mainPage;
+        public static IWebDriver driver;
+        public static MainPage mainPage;
 
-        [Before]
-        public void CreateDriver()
+        public static void CreateDriver()
         {
             driver = new ChromeDriver(@"D:\WebDriver\chromedriver_win32\chromedriver_win32");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         [BeforeScenario]
-        public MainPage OpenMainPage()
+        public static MainPage OpenMainPage()
         {
+            CreateDriver();
             driver.Navigate().GoToUrl("https://allo.ua/ru");
             driver.Manage().Window.Maximize();
-            return new MainPage(driver);
+            mainPage = new MainPage(driver);
+            return mainPage;
         }
 
         [AfterScenario]
-        public void KillDriver()
+        public static void KillDriver()
         {
             driver.Quit();
         }

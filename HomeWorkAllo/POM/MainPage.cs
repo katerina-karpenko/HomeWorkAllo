@@ -16,10 +16,13 @@ namespace HomeWorkAllo
         public By getNameOfUser = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[3]/div/ul/li[5]/div/div/div[1]/span");
         public By getButtonVacancy = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[3]/ul/li[3]/a");
 
-        public By getDropDownMenuOfCity = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[1]/div/svg[2]");
+        public By getDropDownMenuOfCity = By.ClassName("geo-label");
         public By getСityDnepr = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[1]/div");
         public By getTextСityDnepr = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[1]/div[2]/div/div/div/input");
         public By getTextAboutEnterInTown = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[1]/div[2]/p");
+
+        public By getClickOnTheCart = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[3]/div/ul/li[6]/div/div[1]");
+        public By clickOnContactsButton = By.ClassName("info1_kon");
 
         /// <summary>
         /// Создание конструктора.
@@ -56,7 +59,7 @@ namespace HomeWorkAllo
         }
 
         /// <summary>
-        /// Клик выпадающего списка городов.
+        /// Открыть выпадающий список городов.
         /// </summary>
         public MainPage ClickOnCityDropDown()
         {
@@ -80,7 +83,19 @@ namespace HomeWorkAllo
         {
             return _driver.FindElement(getTextAboutEnterInTown).Text;
         }
+        /// <summary>
+        /// Открыть корзину.
+        /// </summary>
+        public Cart ClickTheCart()
+        {
+            _driver.FindElement(getClickOnTheCart).Click();
+            return new Cart(_driver);
+        }
 
-
+        public Contacts Contacts()
+        {
+            _driver.FindElement(clickOnContactsButton).Click();
+            return new Contacts(_driver);
+        }
     }
 }

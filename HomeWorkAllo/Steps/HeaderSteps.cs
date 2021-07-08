@@ -16,11 +16,9 @@ namespace HomeWorkAllo.Steps
         [Given(@"website Allo opened location of the city Kyiv")]
         public void GivenWebsiteAlloOpenedLocationOfTheCityKyiv()
         {
-            Connection connection = new Connection();
-            connection.CreateDriver();
-            mainPage = connection.OpenMainPage();
+            mainPage = Connection.mainPage;
         }
-        
+
         [When(@"click on location of the city")]
         public void WhenClickOnLocationOfTheCity()
         {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Compatibility;
+using OpenQA.Selenium.Support.UI;
 
 namespace HomeWorkAllo.POM
 {
@@ -14,7 +15,8 @@ namespace HomeWorkAllo.POM
         public By loginInput = By.Id("auth");
         public By passwordInput = By.Id("v-login-password");
         public By enterButtonInModal = By.ClassName("modal-submit-button");
-        public By getErrorMessage = By.XPath("/html/body/div[4]/div/div/div[2]/div/div/div[1]/div[1]/form/div/div[1]/div[1]/div[2]/div/span");
+        public By getLoginForm = By.Id("form-validate-login");
+        public By getErrorMessage = By.ClassName("v-validation-error");
 
         public AuthorizationModal(IWebDriver driver)
         {
@@ -51,9 +53,10 @@ namespace HomeWorkAllo.POM
             return new AuthorizationModal(_driver);
         }
 
-        public string ErrorMessageWhenUseInvalidText()
+        public string GetLoginFormText()
         {
-            return _driver.FindElement(getErrorMessage).Text;
+            return _driver.FindElement(getLoginForm).Text;
         }
+
     }
 }

@@ -8,16 +8,13 @@ namespace HomeWorkAllo.Steps
     [Binding]
     public class AuthorizationAlloSteps
     {
-        Connection connection;
         public MainPage mainPage;
         public AuthorizationModal authorizationModal;
 
         [Given(@"website Allo opened")]
         public void GivenWebsiteAlloOpened()
         {
-            connection = new Connection();
-            connection.CreateDriver();
-            mainPage = connection.OpenMainPage();
+            mainPage = Connection.mainPage;
         }
 
         [When(@"click on the button Вход")]
@@ -31,31 +28,31 @@ namespace HomeWorkAllo.Steps
         {
             authorizationModal.ClickOnLoginInModal();
         }
-        
+
         [When(@"enter e-mail '(.*)'")]
         public void WhenEnterE_Mail(string p0)
         {
             authorizationModal.EnterLoginTextIntoModal(p0);
         }
-        
+
         [When(@"click on the password field")]
         public void WhenClickOnThePasswordField()
         {
             authorizationModal.ClickOnPasswordInModal();
         }
-        
+
         [When(@"enter password '(.*)'")]
         public void WhenEnterPassword(string p0)
         {
             authorizationModal.EnterPasswordTextIntoModal(p0);
         }
-        
+
         [When(@"click on the button Войти")]
         public void WhenClickOnTheButtonВойти()
         {
             authorizationModal.ClickOnEnterButtonInModal();
         }
-        
+
         [Then(@"Displayed user name equal to Катерина")]
         public void ThenDisplayedUserNameEqualToКатерина()
         {
@@ -63,10 +60,11 @@ namespace HomeWorkAllo.Steps
             Assert.AreEqual("Катерина", actualMessege);
         }
 
-        [AfterScenario]
-        public void After()
+        [Then(@"Error message '(.*)' is displayed")]
+        public void ThenErrorMessageIsDisplayed(string p0)
         {
-            connection.KillDriver();
+            string actualMessege = authorizationModal.GetLoginFormText();
+            Assert.IsTrue(actualMessege.Contains(p0));
         }
     }
 }
