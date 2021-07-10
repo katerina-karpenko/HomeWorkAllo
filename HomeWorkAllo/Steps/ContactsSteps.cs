@@ -1,4 +1,5 @@
 ﻿using HomeWorkAllo.POM;
+using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
 
@@ -7,19 +8,15 @@ namespace HomeWorkAllo.Steps
     [Binding]
     public class ContactsSteps
     {
-        public MainPage mainPage;
+        public IWebDriver driver;
+        public MainPage mainPage = new MainPage(Connection.driver);
         public Contacts contacts;
+
 
         [When(@"click on the button Контакты")]
         public void WhenClickOnTheButtonКонтакты()
         {
-            mainPage.Contacts();
-        }
-
-        [When(@"click on the name field")]
-        public void WhenClickOnTheNameField()
-        {
-            contacts.ClickOnTheNameField();
+            contacts = mainPage.ContactsButton();
         }
 
         [When(@"enter the user name '(.*)'")]
@@ -28,11 +25,6 @@ namespace HomeWorkAllo.Steps
             contacts.EnterUserName(p0);
         }
 
-        [When(@"click on the e-mail field")]
-        public void WhenClickOnTheE_MailField()
-        {
-            contacts.ClickOnTheEMailField();
-        }
 
         [When(@"enter user e-mail '(.*)'")]
         public void WhenEnterUserE_Mail(string p0)
@@ -52,11 +44,7 @@ namespace HomeWorkAllo.Steps
             contacts.ChooseOfTopicMessage();
         }
 
-        [When(@"click in the message field")]
-        public void WhenClickInTheMessageField()
-        {
-            contacts.ClickInTheMessageField();
-        }
+
 
         [When(@"enter message field '(.*)'")]
         public void WhenEnterMessageField(string p0)

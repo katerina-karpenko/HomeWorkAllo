@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using HomeWorkAllo.POM;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -11,6 +12,11 @@ namespace HomeWorkAllo
     {
         public static IWebDriver driver;
         public static MainPage mainPage;
+        public static Contacts contacts;
+        public static Blog blog;
+        public static Jobs jobs;
+
+
 
         public static void CreateDriver()
         {
@@ -25,6 +31,8 @@ namespace HomeWorkAllo
             driver.Navigate().GoToUrl("https://allo.ua/ru");
             driver.Manage().Window.Maximize();
             mainPage = new MainPage(driver);
+            contacts = new Contacts(driver);
+            blog = new Blog(driver);
             return mainPage;
         }
 

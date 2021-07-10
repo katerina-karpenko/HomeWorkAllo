@@ -14,6 +14,8 @@ namespace HomeWorkAllo.POM
         private IWebDriver _driver;
         public By loginInput = By.Id("auth");
         public By passwordInput = By.Id("v-login-password");
+        public By fildForEmail = By.XPath("/html/body/div[3]/div/div/div[2]/div/div/div[1]/div[1]/form/div/div[1]/div[1]/div[2]/div/span");
+        public By fildForPassword = By.XPath("/html/body/div[4]/div/div/div[2]/div/div/div[1]/div[1]/form/div/div[1]/div[2]/div[2]/div/span");
         public By enterButtonInModal = By.ClassName("modal-submit-button");
         public By getLoginForm = By.Id("form-validate-login");
         public By getErrorMessage = By.ClassName("v-validation-error");
@@ -55,8 +57,22 @@ namespace HomeWorkAllo.POM
 
         public string GetLoginFormText()
         {
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(15)).Until(ExpectedConditions.ElementIsVisible(getLoginForm));
             return _driver.FindElement(getLoginForm).Text;
         }
+
+        public string GetLoginFormTextForErrorLogin()
+        {
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(15)).Until(ExpectedConditions.TextToBePresentInElement(_driver.FindElement(fildForEmail), "Это поле обязательно для заполнения."));
+            return _driver.FindElement(fildForEmail).Text;
+        }
+
+        public string GetLoginFormTextWithErrorPage(string nameOfError)
+        {
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(20)).Until(ExpectedConditions.TextToBePresentInElement(_driver.FindElement(fildForEmail), nameOfError));
+            return _driver.FindElement(fildForEmail).Text;
+        }
+
 
     }
 }

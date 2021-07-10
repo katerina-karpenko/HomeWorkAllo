@@ -10,8 +10,8 @@ namespace HomeWorkAllo.POM
     public class Contacts
     {
         private IWebDriver _driver;
-        public By getNameField = By.Id("feedback - name");
-        public By getEMailField = By.Id("feedback-email");
+        public By getNameField = By.XPath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div/div[2]/div/form/div[1]/div/div/input");
+        public By getEMailField = By.XPath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div/div[2]/div/form/div[2]/div/div[2]/div/input");
         public By getDropDownMenu = By.ClassName("feedback__subject-name");
         public By getChooseOfTopic = By.ClassName("feedback__subject-item");
         public By getMessageField = By.Id("feedback-message");

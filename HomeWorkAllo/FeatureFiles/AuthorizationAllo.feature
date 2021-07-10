@@ -22,8 +22,9 @@ Scenario Outline: When entering invalid data during authorization, an error is d
 	Then Error message '<error_message>' is displayed
 
 	Examples:
-		| e-mail              | password   | error_message                                          |
-		| ddgmail.com         | qwert12345 | Пожалуйста, укажите корректный адрес электронной почты |
-		| dionirana@gmail.com | 54321trewq | Неверный адрес электронной почты (email) или пароль.   |
-		| dionirana@gmail.com |            | Это поле обязательно для заполнения.                   |
-		|                     | 54321trewq | Это поле обязательно для заполнения.                   |
+		| e-mail              | password   | error_message                                                                                                           |
+		| ddgmail.com         | qwert12345 | Пожалуйста, укажите корректный адрес электронной почты                                                                  |
+		| dionirana@gmail.com | 54321trewq | Неверный адрес электронной почты (email) или пароль.                                                                    |
+		| dionirana@gmail.com |            | Это поле обязательно для заполнения.                                                                                    |
+		|                     | 54321trewq | Это поле обязательно для заполнения.                                                                                 |
+		| dgr@com.ua          | 123        | Пользователь с email dgr@com.ua не зарегистрирован. Пожалуйста, зарегистрируйтесь или авторизуйтесь по номеру телефона. |

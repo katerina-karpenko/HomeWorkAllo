@@ -135,6 +135,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("dionirana@gmail.com", "54321trewq", "Неверный адрес электронной почты (email) или пароль.", null)]
         [NUnit.Framework.TestCaseAttribute("dionirana@gmail.com", "", "Это поле обязательно для заполнения.", null)]
         [NUnit.Framework.TestCaseAttribute("", "54321trewq", "Это поле обязательно для заполнения.", null)]
+        [NUnit.Framework.TestCaseAttribute("dgr@com.ua", "123", "Пользователь с email dgr@com.ua не зарегистрирован. Пожалуйста, зарегистрируйтесь" +
+            " или авторизуйтесь по номеру телефона.", null)]
         public virtual void WhenEnteringInvalidDataDuringAuthorizationAnErrorIsDisplayed(string e_Mail, string password, string error_Message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

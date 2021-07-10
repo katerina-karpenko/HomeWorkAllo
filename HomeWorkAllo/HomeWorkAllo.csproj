@@ -83,22 +83,28 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="POM\AuthorizationModal.cs" />
+    <Compile Include="POM\Blog.cs" />
     <Compile Include="POM\Cart.cs" />
     <Compile Include="POM\Contacts.cs" />
+    <Compile Include="POM\GoodsMarkdown.cs" />
     <Compile Include="POM\Jobs.cs" />
     <Compile Include="POM\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\AuthorizationAlloSteps.cs" />
+    <Compile Include="Steps\BlogSteps.cs" />
     <Compile Include="Steps\CartSteps.cs" />
     <Compile Include="Steps\ContactsSteps.cs" />
+    <Compile Include="Steps\GoodsMarkdownSteps.cs" />
     <Compile Include="Steps\HeaderSteps.cs" />
     <Compile Include="Steps\JobsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="FeatureFiles\AuthorizationAllo.feature" />
+    <None Include="FeatureFiles\Blog.feature" />
     <None Include="FeatureFiles\Cart.feature" />
     <None Include="FeatureFiles\Contacts.feature" />
+    <None Include="FeatureFiles\GoodsMarkdown.feature" />
     <None Include="FeatureFiles\Header.feature" />
     <None Include="FeatureFiles\Jobs.feature" />
     <None Include="packages.config" />

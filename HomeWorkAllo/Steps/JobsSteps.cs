@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using System;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace HomeWorkAllo.Steps
@@ -11,17 +12,20 @@ namespace HomeWorkAllo.Steps
     [Binding]
     public class JobsSteps
     {
-        public Jobs jobs;
+        public IWebDriver driver;
+        public MainPage mainPage = new MainPage(Connection.driver);
+        public Jobs jobs = new Jobs(Connection.driver);
 
         [When(@"click on the button Вакансии")]
         public void WhenClickOnTheButtonВакансии()
         {
-            jobs.ClickOnButtonVacanciec();
+            jobs = mainPage.ClickOnVacancyButton();
         }
 
         [When(@"click on drop-down list")]
         public void WhenClickOnDrop_DownList()
         {
+            Connection.driver.SwitchTo().Window(Connection.driver.WindowHandles.Last()); 
             jobs.ClickOnDropDownListOfCity();
         }
 

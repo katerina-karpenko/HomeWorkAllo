@@ -11,7 +11,7 @@ namespace HomeWorkAllo.POM
     {
         private IWebDriver _driver;
         public By locationOfDnepr = By.XPath("/html/body/div[2]/div[3]/div/div/div/div/article/div/div[1]/div/div/div[2]/div/div/div[2]/a[1]/div/div[2]/div[1]/div[1]/span");
-        public By clickOnDropDown = By.XPath("/html/body/div[2]/div[3]/div/div/div/div/article/div/div[1]/div/div/div[2]/div/div/div[1]/form/div[1]/div/div[2]/span[1]");
+        public By clickOnDropDown = By.XPath("/html/body/div[2]/div[3]/div/div/div/div/article/div/div[1]/div/div/div[2]/div/div/div[1]/form/div[1]/div/div[2]");
         public By cityDnepr = By.XPath("/html/body/div[2]/div[3]/div/div/div/div/article/div/div[1]/div/div/div[2]/div/div/div[1]/form/div[1]/div/div[3]/div/ul/li[4]");
         public By displayedDnepr = By.XPath("/html/body/div[2]/div[3]/div/div/div/div/article/div/div[1]/div/div/div[2]/div/div/div[1]/form/div[1]/div/div[3]/div/ul/li[4]");
         public By displayedVacancies = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[3]/ul/li[3]/a");
