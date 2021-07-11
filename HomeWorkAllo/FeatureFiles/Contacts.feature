@@ -8,7 +8,7 @@ Scenario: Ask a question to support
 	When click on the button Контакты
 	When enter the user name 'TestUser'
 	When enter user e-mail 'wegevi2952@herrain.com'
-	When click on drop-down topic menu 
+	When click on drop-down topic menu
 	When choose on drop-down menu Вопросы по акциям
 	When enter message field 'TestText'
 	When click on the button send

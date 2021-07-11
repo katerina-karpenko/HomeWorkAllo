@@ -25,7 +25,7 @@ namespace HomeWorkAllo.Steps
         [When(@"click on drop-down list")]
         public void WhenClickOnDrop_DownList()
         {
-            Connection.driver.SwitchTo().Window(Connection.driver.WindowHandles.Last()); 
+            Connection.driver.SwitchTo().Window(Connection.driver.WindowHandles.Last());
             jobs.ClickOnDropDownListOfCity();
         }
 

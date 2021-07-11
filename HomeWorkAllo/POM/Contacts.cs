@@ -68,7 +68,7 @@ namespace HomeWorkAllo.POM
         public Contacts EnterMessageInField(string testText)
         {
             _driver.FindElement(getMessageField).SendKeys(testText);
-                return this;
+            return this;
         }
 
         public Contacts ClickToSendButton()
@@ -81,6 +81,5 @@ namespace HomeWorkAllo.POM
         {
             return _driver.FindElement(messageForUser).Text;
         }
-
     }
 }

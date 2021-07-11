@@ -24,13 +24,13 @@ namespace HomeWorkAllo.Steps
         {
             mainPage.ClickOnCityDropDown();
         }
-        
+
         [When(@"click on the city Dnepr")]
         public void WhenClickOnTheCityDnepr()
         {
             mainPage.ChooseDneprOnDropDown();
         }
-        
+
         [Then(@"the location of the city has changed to the Dnepr")]
         public void ThenTheLocationOfTheCityHasChangedToTheDnepr()
         {

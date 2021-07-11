@@ -21,6 +21,8 @@ namespace HomeWorkAllo
         public By getClickOnTheCart = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[3]/div/ul/li[6]/div/div[1]");
         public By clickOnContactsButton = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[3]/ul/li[8]/a");
         public By clickOnBlogPageButton = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[1]/div/div[3]/ul/li[1]/a");
+        public By clickOnGoodsMarkdownPageButton = By.XPath("/html/body/div[1]/div/div/div[1]/div[1]/div[2]/div/ul/li[5]/a");
+
 
         /// <summary>
         /// Создание конструктора.
@@ -98,10 +100,22 @@ namespace HomeWorkAllo
             return new Contacts(_driver);
         }
 
+        /// <summary>
+        /// Переход на страницу Блог.
+        /// </summary>
         public Blog BlogPageClick()
         {
             _driver.FindElement(clickOnBlogPageButton).Click();
             return new Blog(_driver);
+        }
+
+        /// <summary>
+        /// Переход на страницу Уценка.
+        /// </summary>
+        public GoodsMarkdown MarkdownPageClick()
+        {
+            _driver.FindElement(clickOnGoodsMarkdownPageButton).Click();
+            return new GoodsMarkdown(_driver);
         }
     }
 }

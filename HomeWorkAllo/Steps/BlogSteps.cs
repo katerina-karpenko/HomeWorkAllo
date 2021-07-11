@@ -10,7 +10,6 @@ namespace HomeWorkAllo.Steps
     [Binding]
     public class BlogSteps
     {
-
         //public IWebDriver driver;
         public MainPage mainPage = new MainPage(Connection.driver);
         public Blog blog = new Blog(Connection.driver);
@@ -20,7 +19,7 @@ namespace HomeWorkAllo.Steps
         {
             blog = mainPage.BlogPageClick();
         }
-        
+
         [Then(@"User see News button")]
         public void ThenUserSeeNewsButton()
         {
@@ -28,12 +27,30 @@ namespace HomeWorkAllo.Steps
             string newsText = blog.GetNewsText();
             Assert.AreEqual("НОВОСТИ", newsText);
         }
-        
+
         [Then(@"User see Articl button")]
         public void ThenUserSeeArticlButton()
         {
             string articlText = blog.GetArticText();
             Assert.AreEqual("СТАТЬИ", articlText);
+        }
+
+        [When(@"click on the button category")]
+        public void WhenClickOnTheButtonCategory()
+        {
+            blog.ClickOnDropDownСategories();
+        }
+
+        [When(@"select a category Игры")]
+        public void WhenSelectACategoryИгры()
+        {
+            blog.ClickOnDropDownСategoriesGames();
+        }
+
+        [Then(@"the user is on the Игры block")]
+        public void ThenTheUserIsOnTheИгрыBlock()
+        {
+            blog.CategoriesNewsGames();
         }
     }
 }

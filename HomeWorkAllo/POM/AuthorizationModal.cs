@@ -72,7 +72,5 @@ namespace HomeWorkAllo.POM
             new WebDriverWait(_driver, TimeSpan.FromSeconds(20)).Until(ExpectedConditions.TextToBePresentInElement(_driver.FindElement(fildForEmail), nameOfError));
             return _driver.FindElement(fildForEmail).Text;
         }
-
-
     }
 }

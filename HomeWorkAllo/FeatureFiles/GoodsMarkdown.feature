@@ -5,6 +5,6 @@
 
 Scenario: Display markdown items
 	Given website Allo opened
+	When click on the button Уценка
 	Then user sees the item list page
 	Then user sees the the catalog
-	 

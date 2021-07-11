@@ -5,9 +5,13 @@
 
 Scenario: Displaying news block
 	Given website Allo opened
-	When click on the button Blog 
-	#When click on the button category
-	#When select a category Игры 
-	#Then the user is on the Игры block
+	When click on the button Blog
 	Then User see News button
 	Then User see Articl button
+
+Scenario: Displaying games news block
+	Given website Allo opened
+	When click on the button Blog
+	When click on the button category
+	When select a category Игры
+	Then the user is on the Игры block
